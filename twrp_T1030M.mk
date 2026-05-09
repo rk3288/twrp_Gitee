@@ -11,7 +11,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 # Inherit some common twrp stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-# Inherit from a15 device
+# Inherit from T1030M device
 $(call inherit-product, device/alldocube/T1030M/device.mk)
 
 # Enable project quotas and casefolding for emulated storage without sdcardfs
