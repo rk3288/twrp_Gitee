@@ -17,7 +17,6 @@ $(call inherit-product, device/alldocube/T1030M/device.mk)
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
-PRODUCT_COPY_FILES += $(call find-copy-subdir-file
 
 PRODUCT_DEVICE := T1030M
 PRODUCT_NAME := twrp_T1030M
