@@ -10,7 +10,7 @@ PRODUCT_MAKEFILES := \
 COMMON_LUNCH_CHOICES := \
 	twrp_T1030M-user \
 	twrp_T1030M-userdebug \
-	twrp_T1030M-eng \
-	twrp_T1030M-ap2a-user \
-	twrp_T1030M-ap2a-userdebug \
-        twrp_T1030M-ap2a-eng
+	twrp_T1030M-eng #\
+#	twrp_T1030M-ap2a-user \
+#	twrp_T1030M-ap2a-userdebug \
+#       twrp_T1030M-ap2a-eng
