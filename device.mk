@@ -40,10 +40,12 @@ PRODUCT_PACKAGES += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
+    android.hardware.boot@1.2-mtkimpl \
+    android.hardware.boot@1.2-mtkimpl.recovery
 
-
+PRODUCT_PACKAGES_DEBUG += \
+    bootctl
+    
 # Health Hal
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
@@ -52,10 +54,9 @@ PRODUCT_PACKAGES += \
 # MTK plpath utils
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
-    mtk_plpath_utils.recovery
-
-PRODUCT_PACKAGES += \
-    bootctrl.mt6789
+    mtk_plpath_utils.recovery    
+    
+            
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
