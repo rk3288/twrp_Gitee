@@ -103,7 +103,7 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
 
 # System as root
-BOARD_ROOT_EXTRA_FOLDERS := data_mirror debug_ramdisk linkerconfig metadata odm_dlkm oem postinstall prism second_stage_resources spu system_ext vendor_dlkm system_dlkm
+BOARD_ROOT_EXTRA_FOLDERS := data_mirror debug_ramdisk linkerconfig metadata odm_dlkm oem postinstall prism second_stage_resources spu system_ext vendor_dlkm system_dlkm vendor_image
 
 
 # Recovery
@@ -132,6 +132,11 @@ TW_INCLUDE_CRYPTO := false
 TW_INCLUDE_CRYPTO_FBE := false
 TW_INCLUDE_FBE_METADATA_DECRYPT := false
 BOARD_USES_METADATA_PARTITION := true
+
+
+# TWRP - Language
+TW_EXTRA_LANGUAGES := true
+TW_DEFAULT_LANGUAGE := zh_CN
 
 # TWRP Configuration
 TW_DEVICE_VERSION := iPlay 50 Pro
