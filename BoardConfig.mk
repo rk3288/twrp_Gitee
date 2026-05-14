@@ -111,6 +111,7 @@ BOARD_ROOT_EXTRA_FOLDERS := data_mirror debug_ramdisk linkerconfig metadata odm_
 TARGET_NO_RECOVERY := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_BOOTCONFIG += androidboot.selinux=permissive
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
