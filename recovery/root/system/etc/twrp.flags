@@ -1,25 +1,24 @@
 # TWRP fstab file (for alldocube T1030M/MT6789 CPU)
 
 # mount point	fstype		device			device2			flags
-/system_root 	emmc	/dev/block/mapper/system		flags=backup=0;flashimg;display="System Image";slotselect
-/vendor_image 	emmc	/dev/block/mapper/vendor		flags=backup=0;flashimg;display="Vendor Image";slotselect
-/product	emmc	/dev/block/mapper/product		flags=backup=0;flashimg;display="Product Image";slotselect
-/odm_image	emmc	/dev/block/mapper/odm			flags=backup=0;flashimg;display="odm Image";slotselect
-/system_ext	emmc	/dev/block/mapper/system_ext		flags=backup=0;flashimg;display="System_EXT Image";slotselect
-/vendor_dlkm	emmc	/dev/block/mapper/vendor_dlkm		flags=backup=0;flashimg;display="Vendor dlkm Image";slotselect
-/odm_dlkm	emmc	/dev/block/mapper/odm_dlkm		flags=backup=0;flashimg;display="odm dlkm Image";slotselect
+/system_root 	emmc	/dev/block/mapper/system		    flags=slotselect;logical;backup=0;flashimg;display="System Image"
+/vendor 	    emmc	/dev/block/mapper/vendor		    flags=slotselect;logical;backup=0;flashimg;display="Vendor Image"
+/product		emmc	/dev/block/mapper/product		    flags=slotselect;logical;backup=0;flashimg;display="Product Image"
+/odm_image	    emmc	/dev/block/mapper/odm			    flags=slotselect;logical;backup=0;flashimg;display="odm Image"
+/system_ext 	emmc	/dev/block/mapper/system_ext		flags=slotselect;logical;backup=0;flashimg;display="System_EXT Image"
+/vendor_dlkm	emmc	/dev/block/mapper/vendor_dlkm		flags=slotselect;logical;backup=0;flashimg;display="Vendor dlkm Image"
+/odm_dlkm	    emmc	/dev/block/mapper/odm_dlkm		    flags=slotselect;logical;backup=0;flashimg;display="odm dlkm Image"
 
 # physical partitions for backup and flashing
-/metadata	ext4	/dev/block/by-name/metadata		flags=backup=1;wipeingui;display="Metadata"
-/boot		emmc	/dev/block/by-name/boot			flags=backup=1;flashimg;display="Boot";slotselect
-/recovery	emmc	/dev/block/by-name/recovery		flags=backup=1;flashimg;display="Recovery"
-/data		f2fs	/dev/block/by-name/userdata		flags=length=-32768;backup=1;wipeingui;display="Data"
-/dtbo		emmc	/dev/block/by-name/dtbo			flags=backup=1;flashimg;display="Dtbo"
-/optics_image	emmc	/dev/block/by-name/optics		flags=backup=1;flashimg;display="Optics Image"
-/prism_image	emmc	/dev/block/by-name/prism		flags=backup=1;flashimg;display="Prism Image"
-/vbmeta_system	emmc	/dev/block/by-name/vbmeta_system	flags=backup=1;display="VBMeta System"
-/init_boot	emmc	/dev/block/by-name/init_boot		flags=backup=1;flashimg;display="Init Boot";slotselect
+/metadata	    ext4	/dev/block/by-name/metadata		    flags=backup=1;wipeingui;display="Metadata"
+/boot		    emmc	/dev/block/by-name/boot			    flags=slotselect;backup=1;flashimg;display="Boot"
 /vendor_boot	emmc	/dev/block/by-name/vendor_boot		flags=backup=1;flashimg;display="Vendor Boot"
+/data		    f2fs	/dev/block/by-name/userdata		    flags=length=-32768;backup=1;wipeingui;display="Data"
+/dtbo		    emmc	/dev/block/by-name/dtbo			    flags=backup=1;flashimg;display="Dtbo"
+/optics_image	emmc	/dev/block/by-name/optics		    flags=backup=1;flashimg;display="Optics Image"
+/prism_image	emmc	/dev/block/by-name/prism		    flags=backup=1;flashimg;display="Prism Image"
+/vbmeta_system	emmc	/dev/block/by-name/vbmeta_system	flags=backup=1;display="VBMeta System"
+
 
 # other partitions
 /tee1		emmc	/dev/block/by-name/tee1			flags=display="TEE1";backup=1

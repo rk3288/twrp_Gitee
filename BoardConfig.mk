@@ -159,7 +159,6 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 700
 TW_DEFAULT_BRIGHTNESS := 300
-TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_FASTBOOTD := true
@@ -175,6 +174,7 @@ TW_BACKUP_EXCLUSIONS := /data/fonts
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 #TW_NO_CPU_TEMP := true
+#TW_NO_REBOOT_BOOTLOADER := true
 
 # Battery correct percentage
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/battery/capacity
