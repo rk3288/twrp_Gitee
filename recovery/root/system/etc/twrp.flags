@@ -1,7 +1,7 @@
-# TWRP fstab file
+# TWRP fstab file (for alldocube T1030M/MT6789 CPU)
 
 # mount point	fstype		device			device2			flags
-/system 	emmc	/dev/block/mapper/system		flags=backup=0;flashimg;display="System Image";slotselect
+/system_root 	emmc	/dev/block/mapper/system		flags=backup=0;flashimg;display="System Image";slotselect
 /vendor_image 	emmc	/dev/block/mapper/vendor		flags=backup=0;flashimg;display="Vendor Image";slotselect
 /product	emmc	/dev/block/mapper/product		flags=backup=0;flashimg;display="Product Image";slotselect
 /odm_image	emmc	/dev/block/mapper/odm			flags=backup=0;flashimg;display="odm Image";slotselect
@@ -20,8 +20,6 @@
 /vbmeta_system	emmc	/dev/block/by-name/vbmeta_system	flags=backup=1;display="VBMeta System"
 /init_boot	emmc	/dev/block/by-name/init_boot		flags=backup=1;flashimg;display="Init Boot";slotselect
 /vendor_boot	emmc	/dev/block/by-name/vendor_boot		flags=backup=1;flashimg;display="Vendor Boot"
-/vbmeta_samsung	emmc	/dev/block/by-name/vbmeta_samsung	flags=backup=1;display="VBMeta Samsung"
-/cache		ext4	/dev/block/by-name/cache		flags=backup=1;display="Cache";wipeingui
 
 # other partitions
 /tee1		emmc	/dev/block/by-name/tee1			flags=display="TEE1";backup=1
@@ -41,7 +39,7 @@
 /pi_img		emmc	/dev/block/by-name/pi_img		flags=display="PI_IMG";backup=1;flashimg=1
 /optics		ext4	/dev/block/by-name/optics		flags=display="Optics";backup=1
 /prism		ext4	/dev/block/by-name/prism		flags=display="Prism";backup=1
-/frp		ext4	/dev/block/by-name/frp			flags=display="frp";backup=1
+/persistent	ext4	/dev/block/by-name/frp			flags=display="frp";backup=1
 /nvdata		ext4	/dev/block/by-name/nvdata		flags=display="NVDATA";backup=1
 /nvcfg		ext4	/dev/block/by-name/nvcfg		flags=display="NVCFG";backup=1
 /nvram		emmc	/dev/block/by-name/nvram		flags=display="NVRAM";backup=1;flashimg=1
@@ -50,7 +48,6 @@
 /sec_efs	ext4	/dev/block/by-name/sec_efs		flags=display="SEC EFS";backup=1
 /keydata	ext4	/dev/block/by-name/keydata		flags=display="Keydata";backup=1
 /keyrefuge	ext4	/dev/block/by-name/keyrefuge		flags=display="Keyrefuge";backup=1
-/persistent	emmc	/dev/block/by-name/persistent		flags=display="Persistent";backup=1
 /protect1	emmc	/dev/block/by-name/protect1		flags=display="Protect1";backup=1
 /protect2	emmc	/dev/block/by-name/protect2		flags=display="Protect2";backup=1
 /param		emmc	/dev/block/by-name/param		flags=display="Param";backup=1

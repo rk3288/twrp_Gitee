@@ -1,6 +1,6 @@
 # Android recovery fstab (for alldocube T1030M/MT6789 CPU)
 
-system                     /system                     ext4    wait,slotselect,logical,first_stage_mount
+system_root                     /system                     ext4    wait,slotselect,logical,first_stage_mount
 system_ext                 /system_ext                 ext4    ro,wait,slotselect,logical,first_stage_mount
 vendor                     /vendor                     ext4    ro,wait,slotselect,logical,first_stage_mount
 product                    /product                    ext4    ro,wait,slotselect,logical,first_stage_mount
