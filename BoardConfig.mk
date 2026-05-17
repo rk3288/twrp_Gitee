@@ -140,6 +140,11 @@ BOARD_USES_METADATA_PARTITION := true
 TW_EXTRA_LANGUAGES := true
 TW_DEFAULT_LANGUAGE := zh_CN
 
+# TWRP - TouchScreen
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_SUPPORT_INPUT_1_2 := true
+TARGET_RECOVERY_DEVICE_MODULES += android.hardware.input.processor
+
 # TWRP Configuration
 TW_DEVICE_VERSION := iPlay 50 Pro
 TWRP_EVENT_LOGGING := true
