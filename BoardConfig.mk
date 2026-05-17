@@ -144,6 +144,7 @@ TW_DEFAULT_LANGUAGE := zh_CN
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_IGNORE_MAJOR_AXIS_0 := true
 TW_SUPPORT_INPUT_1_2 := true
+TW_INPUT_REMAP_TRACKING_ID_TO_BTN_TOUCH := true
 TARGET_RECOVERY_DEVICE_MODULES += android.hardware.input.processor
 
 # TWRP Configuration
