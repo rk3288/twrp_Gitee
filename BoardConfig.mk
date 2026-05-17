@@ -142,6 +142,7 @@ TW_DEFAULT_LANGUAGE := zh_CN
 
 # TWRP - TouchScreen
 TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_IGNORE_MAJOR_AXIS_0 := true
 TW_SUPPORT_INPUT_1_2 := true
 TARGET_RECOVERY_DEVICE_MODULES += android.hardware.input.processor
 
