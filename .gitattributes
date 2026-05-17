@@ -1,1 +1,8 @@
 * text eol=lf
+* text eol=lf
+*.mk text eol=lf
+*.bp text eol=lf
+*.rc text eol=lf
+*.sh text eol=lf
+*fstab* text eol=lf
+*prop* text eol=lf
