@@ -24,6 +24,6 @@
 *.db    binary
 *.png   binary
 *.jpg   binary
-*.gz    binary          # fixed missing asterisk
+*.gz    binary
 *kernel* binary
 *image* binary
