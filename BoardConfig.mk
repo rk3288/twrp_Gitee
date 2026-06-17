@@ -56,7 +56,7 @@ TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 BOARD_KERNEL_IMAGE_NAME := kernel
-BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2
+BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
 
 BOARD_VENDOR_BASE := 0x3fff8000
 BOARD_PAGE_SIZE := 4096
@@ -110,7 +110,6 @@ BOARD_ROOT_EXTRA_FOLDERS := data_mirror debug_ramdisk linkerconfig metadata odm_
 # Recovery
 TARGET_NO_RECOVERY := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
-BOARD_BOOTCONFIG += androidboot.selinux=permissive
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_USERIMAGES_USE_EXT4 := true
