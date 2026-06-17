@@ -2,7 +2,6 @@
 # Copyright (C) 2024 The Android Open Source Project
 #
 # SPDX-License-Identifier: Apache-2.0
-#
 
 DEVICE_PATH := device/alldocube/T1030M
 
@@ -56,7 +55,7 @@ TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 BOARD_KERNEL_IMAGE_NAME := kernel
-BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
 
 BOARD_VENDOR_BASE := 0x3fff8000
 BOARD_PAGE_SIZE := 4096
@@ -69,7 +68,6 @@ TARGET_NO_KERNEL := false
 # BOARD_RAMDISK_USE_LZ4 := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS := --base $(BOARD_VENDOR_BASE)
-BOARD_MKBOOTIMG_ARGS += --vendor_cmdline $(BOARD_VENDOR_CMDLINE)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_PAGE_SIZE) 
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)  
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) 
