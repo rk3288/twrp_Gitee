@@ -1,8 +1,8 @@
 # Device Tree of iPlay_50_Pro aka T1030M
 
-```ruby
 iPlay50Pro(T1030M)-Android13-20240328-固件及刷机教程.rar -->> CN (China firmware)
 
+```ruby
 ro.build.display.id=iPlay50Pro_V2.0_20240103
 ro.build.flavor=vext_k6789v1_64-user
 ro.build.product=k6789v1_64
@@ -65,17 +65,21 @@ Although not explicitly declared in the default file, the ´microtrust´ decrypt
 
 ## Device specifications
 
+Specs [here](https://www.devicespecifications.com/en/model/839e5b62)
+
 Basic   | Spec Sheet
 -------:|:-------------------------
 SoC     | Mediatek Helio G99 (MT6789) (6nm)
 CPU     | Octa-core (2x2.2 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)
 GPU     | Mali-G57 MC2
 Memory  | 8 GB RAM
-Shipped Android Version | 13.0 with China firmware
-Storage | 128/256 GB
-Battery | Li-Po 5000 mAh, non-removable
-Display | 6.78-inch, 1080*2460 FHD+ Resolution; Dynamic 120Hz Refresh Rate
-Camera  | 64 MP (Samsung® ISOCELL GW3) and 13 MP (Samsung® ISOCELL 3L6)
+Shipped Android Version | 12.0 with Cube OS China firmware
+Storage | 128 GB
+Battery | Li-Po 6000 mAh, non-removable
+Display | 10.4 in, IPS, 2000 x 1200 pixels,
+Camera  | 8 MP (CMOS) and 4 MP (Samsung® ISOCELL 3L6)
+
+![iPlay Pro](https://www.alldocube.com/en/wp-content/uploads/2023/01/1697701908-iplay50pro-post-part12-3.jpg)
 
 ## Features
 
@@ -95,10 +99,9 @@ Works:
 - [ ] Format DATA
 - [ ] Install files (zip - img)
 
-# Building
+# Building - twrp-12.1
 
-twrp-12.1
-```bash
+```yaml
 . build/envsetup.sh
 breakfast twrp_T1030M-eng
 mka vendorbootimage
