@@ -28,6 +28,7 @@ ro.board.platform=mt6789
 
 <details><summary>Others details - Click to open</summary>
 <p>
+  
 ```
 #touchpanel.gsl.ic                                  GSL1686    #触摸屏IC
 #tp.gslx68x.pen 0 # 1 turn on pen function ,0 turn off pen
