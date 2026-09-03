@@ -3,21 +3,21 @@
 iPlay50Pro(T1030M)-Android13-20240328-固件及刷机教程.rar -->> CN (China firmware)
 
 ```ruby
-ro.build.display.id=iPlay50Pro_V2.0_20240103
-ro.build.flavor=vext_k6789v1_64-user
+ro.build.display.id=iPlay50Pro_V2.0_20240328
+ro.build.flavor=vext_k6789v1_64-user 
 ro.build.product=k6789v1_64
-ro.build.description=vext_k6789v1_64-user 12 SP1A.210812.016 1704261138 release-keys
+ro.build.description=vext_k6789v1_64-user 12 SP1A.210812.016 1711613054 release-keys
 ####################################
 ro.product.vendor.brand=Alldocube
 ro.product.vendor.device=T1030M
 ro.product.vendor.manufacturer=Alldocube
 ro.product.vendor.model=iPlay 50 Pro
 ro.product.vendor.name=iPlay_50_Pro
-ro.vendor.build.date=Wed Jan  3 15:51:13 CST 2024
-ro.vendor.build.date.utc=1704268273
-ro.vendor.build.fingerprint=Alldocube/iPlay_50_Pro/T1030M:12/SP1A.210812.016/1704261138:user/release-keys
+ro.vendor.build.date=Thu Mar 28 17:41:10 CST 2024
+ro.vendor.build.date.utc=1711618870
+ro.vendor.build.fingerprint=Alldocube/iPlay_50_Pro/T1030M:12/SP1A.210812.016/1711613054:user/release-keys
 ro.vendor.build.id=SP1A.210812.016
-ro.vendor.build.version.incremental=1704261138
+ro.vendor.build.version.incremental=1711613054
 ro.vendor.build.version.release=12
 ro.vendor.build.version.release_or_codename=12
 ro.vendor.build.version.sdk=31
