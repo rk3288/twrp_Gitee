@@ -33,10 +33,14 @@ TARGET_IS_VIRTUAL_AB := true
 ENABLE_VIRTUAL_AB := true
 AB_OTA_UPDATER := true
 
-# Fastbootd
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    fastbootd
+        android.hardware.fastboot@1.1-impl-mock \
+        android.hardware.fastboot@1.0-impl-mock \
+        android.hardware.fastboot@1.0-impl-mock.recovery \
+        fastbootd
+
+    PRODUCT_PROPERTY_OVERRIDES += \
+     ro.fastbootd.available=true
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
