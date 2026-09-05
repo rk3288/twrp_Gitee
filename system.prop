@@ -1,9 +1,42 @@
-ro.display.series=iPlay 50 Pro
-ro.boot.dynamic_partitions=true
-sys.usb.config=mtp
-ro.boot.boot_devices=bootdevice,soc/11270000.ufshci,11270000.ufshci
-
-# MTP FIX
+####### generate by lopestom #######
+# Fstab
+ro.postinstall.fstab.prefix=/system
+# USB MTP
+ro.sys.usb.storage.type=mtp
+# identity
+Build.BRAND=MTK
+# Crypto
+ro.crypto.volume.filenames_mode=aes-256-cts
+# TEE & Gatekeeper & Keymaster
+ro.vendor.mtk_tee_gp_support=1
+ro.vendor.mtk_svp_on_mtee_support=2
+ro.hardware.kmsetkey=beanpod
+ro.hardware.gatekeeper=beanpod
+ro.vendor.mtk_microtrust_tee_support=1
+# HideReflashTWRP
+ro.twrp.vendor_boot=true
+# Misc
+ro.vendor.mediatek.platform=MT6789
+ro.vendor.mtk_f2fs_enable=1
+ro.vendor.mtk_emmc_support=1
+ro.hardware.egl=meow
+#ro.build.characteristics=tablet
+ro.build.freeme.mtp_ptp.name=iPlay 50 Pro
+#
+keymaster_ver=4.1
+ro.freeme.hw_usb_otg=1
+ro.freeme.hw_storage_sdcard=1
+# Others
+ro.secure=0
+ro.adb.secure=0
+ro.debuggable=1
+persist.sys.usb.config=mtp,adb
 persist.service.adb.enable=1
 persist.service.debuggable=1
-persist.sys.usb.config=mtp,adb
+persist.sys.isUsbOtgEnabled=true
+ro.sys.usb.mtp.whql.enable=0
+ro.sys.usb.storage.type=mtp
+ro.treble.enabled=true
+sys.usb.controller=musb-hdrc
+sys.usb.ffs.aio_compat=true
+####### generate by lopestom #######

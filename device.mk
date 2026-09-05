@@ -1,75 +1,155 @@
+# Copyright (C) 2026 The Android Open Source Project
+# Copyright (C) 2026 TeamWin Recovery Project
 #
-# Copyright (C) 2024 The Android Open Source Project
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 #
-# SPDX-License-Identifier: Apache-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 #
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
-# Configure launch_with_vendor_ramdisk.mk
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+# Inherit from common AOSP config
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
-LOCAL_PATH := device/alldocube/T1030M
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
-# Dynamic partitions
+# Enable project quotas and casefolding for emulated storage without sdcardfs - SDCard replacement functionality
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
+# Enable Compression - Snapuserd
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
+
+# Enable userspace reboot
+$(call inherit-product, $(SRC_TARGET_DIR)/product/userspace_reboot.mk)
+
+# Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-#Virtual AB Partitions
+# API
+BOARD_SHIPPING_API_LEVEL := 31
+PRODUCT_SHIPPING_API_LEVEL := 31
+PRODUCT_TARGET_VNDK_VERSION := 31
+
+# Virtual A/B
+ENABLE_VIRTUAL_AB := true
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+
+# A/B
+AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS := \
     boot \
-    vendor_boot \
-    odm_dlkm \
-    product \
+    dtbo \
     system \
     system_ext \
+    product \
+    vendor \
+    vendor_boot \
+    vendor_dlkm \
+    odm_dlkm \
     vbmeta \
     vbmeta_system \
-    vbmeta_vendor \
-    vendor \
-    vendor_dlkm
+    vbmeta_vendor
 
-# Virtual AB
-TARGET_IS_VIRTUAL_AB := true
-ENABLE_VIRTUAL_AB := true
-AB_OTA_UPDATER := true
+# AB
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/mtk_plpath_utils \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
+
+# Update engine
+PRODUCT_PACKAGES += \
+    checkpoint_gc \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
+
+# Boot control HAL - Bootctrl
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-service \
+    android.hardware.boot@1.2-mtkimpl \
+    android.hardware.boot@1.2-mtkimpl.recovery \
+    bootctrl \
+    bootctrl.recovery \
+    bootctrl.$(TARGET_BOARD_PLATFORM) \
+    bootctrl.$(TARGET_BOARD_PLATFORM).recovery \
+    libmtk_bsg \
+    libmtk_bsg.recovery
+
+PRODUCT_PACKAGES_DEBUG += \
+    bootctrl
 
 # Fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery \
     fastbootd
 
-# Boot control HAL
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-mtkimpl \
-    android.hardware.boot@1.2-mtkimpl.recovery
-
-PRODUCT_PACKAGES_DEBUG += \
-    bootctl
-    
 # Health Hal
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
-    
-# MTK plpath utils
+
+# Build MT-PL-Utils
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
-    mtk_plpath_utils.recovery    
-    
-            
+    mtk_plpath_utils.recovery
 
+# Keystore
 PRODUCT_PACKAGES += \
-    otapreopt_script \
-    cppreopts.sh \
-    update_engine \
-    update_verifier \
-    update_engine_sideload
+    android.system.keystore2
 
-# A/B
-AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
-    POSTINSTALL_OPTIONAL_system=true
-    
+# Keymint
+PRODUCT_PACKAGES += \
+    android.hardware.security.keymint \
+    android.hardware.security.secureclock \
+    android.hardware.security.sharedsecret
+
+# Drm
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.4
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1
+
+# Additional target Libraries
+TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hardware.keymaster@4.1 \
+    libion \
+    libxml2
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_iplay
+TARGET_RECOVERY_DEVICE_MODULES := libinit_iplay    
+
+# for test other moment
+# \
+#    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V2-ndk.so
+
+# ?    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V2-ndk_platform.so
+
+# OEM otacerts
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    $(DEVICE_PATH)/security/testkey
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
