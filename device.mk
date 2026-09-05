@@ -148,7 +148,7 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_iplay
 
 # OEM otacerts
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-    $(DEVICE_PATH)/security/testkey
+    $(DEVICE_PATH)/security/iplay_testkey
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
