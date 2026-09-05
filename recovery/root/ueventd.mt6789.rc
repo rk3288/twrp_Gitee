@@ -1,4 +1,7 @@
 #change partition permission
+/dev/silead_fp 0777 system system
+/dev/silead_spi 0777 system system
+
 # eMMC only
 /dev/block/mmcblk0                               0660    root    system
 /dev/block/mmcblk0boot0                          0660    root    system
@@ -59,8 +62,7 @@
 /dev/fw_log_wifi          0660   wifi     wifi
 
 # FMRadio
-# NFBD:modify  for dev/fm 0660->0666 by yuguo.zhang 20220406
-/dev/fm                   0666   media     media
+/dev/fm                   0660   media     media
 
 # NFC
 /dev/st21nfc              0660   nfc        radio
