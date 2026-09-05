@@ -149,12 +149,12 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # TWRP Crypto
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_INCLUDE_CRYPTO := false
+TW_INCLUDE_CRYPTO_FBE := false
+TW_INCLUDE_FBE_METADATA_DECRYPT := false
 #TW_USE_FSCRYPT_POLICY := 2
-TW_FORCE_KEYMASTER_VER := true
-TW_BACKUP_EXCLUSIONS := /data/fonts
+#TW_FORCE_KEYMASTER_VER := true
+#TW_BACKUP_EXCLUSIONS := /data/fonts
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
@@ -229,6 +229,7 @@ TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone29/temp"
 TW_LOAD_VENDOR_BOOT_MODULES := true
 TW_LOAD_VENDOR_MODULES := true
 TW_USES_VENDOR_LIBS := true
+TW_LOAD_VENDOR_DLKM_MODULES := true
 
 # TWRP - TouchScreen
 TW_INPUT_BLACKLIST := "hbtp_vm"
@@ -238,13 +239,8 @@ TW_INPUT_REMAP_TRACKING_ID_TO_BTN_TOUCH := true
 TARGET_RECOVERY_DEVICE_MODULES += android.hardware.input.processor
 TW_NO_HAPTICS := true
 
-# TWRP Configuration
-# TWRP_EVENT_LOGGING := true # No have issues with touchscreen so not need this!
-
 # TWRP Virtual Button
 TW_INCLUDE_NAVBAR := true
-
-#TW_HAS_DOWNLOAD_MODE := true # Only some devices as Samis; Qualcomm; Nokia; Exynos has this!
 
 # Debug
 TARGET_USES_LOGD := true
