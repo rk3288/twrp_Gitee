@@ -43,10 +43,6 @@ on post-fs
 
 on late-fs
     # Mount RW partitions which need run fsck
-    mount_all /first_stage_ramdisk/fstab.mt6789 --late	
-
-on late-fs
-    # Mount RW partitions which need run fsck
     mount_all /first_stage_ramdisk/fstab.mt6789 --late
 
 # Service to load vendor DLKM modules using a shell script
@@ -61,7 +57,6 @@ service load_vendor_dlkm_modules /system/bin/load_drivers.sh
 on property:init.svc.recovery=running
     start load_vendor_dlkm_modules
 
-    setprop sys.usb.config adb
 
 service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     interface android.hardware.gatekeeper@1.0::IGatekeeper default
